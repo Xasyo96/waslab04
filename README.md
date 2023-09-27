@@ -2,8 +2,8 @@
 
 Students:
 
-* Surname_1, First_name_1
+* Utrero_1, Sergio_1
 
-* Surname_2, First_name_2
+* Leonardo_2, Xavier_2
 
 Your deployed webapp at Fly.io|Heroku|... (task #6): <https://*********.***.***/>
