@@ -1,19 +1,37 @@
-<p style="color: green"><%= notice %></p>
+<body class = "wotbody">
+<h1 class="wottitle">Wall of Tweets @ <a href="https://fly.io/">Fly.io</a></h1>
 
-<h1>Tweets</h1>
+<link rel="stylesheet" href="/waslab04/app/assets/stylesheets/application.css" data-turbo-track="reload" />
+
+<%= render 'form', tweet: @tweet %>
+
+<% if notice %>
+  <div class = "wotitem">
+    <div class="tweetitem" id="notice">
+      <% if notice[0] == 'T' %>
+        <span style="color: green;"><%= notice %></span>
+      <% else %>
+        <span style="color: red;"><%= notice %></span>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+
 
 <div id="tweets">
+  <% @actual_day = "" %>
   <% @tweets.each do |tweet| %>
-    <%= render tweet %>
-    <p>
-      <%= button_to 'Like this tweet', like_tweet_path(tweet), method: :put %>
-    </p>
-    <p>
-      <%= link_to "Show this tweet", tweet %>
-    </p>
-    <hr>
-
+   <% @tweeet_day = tweet.created_at.strftime("%A, %B %d, %Y") %>
+    <% if @actual_day != @tweeet_day %>
+    <h3>
+      ......
+      <%= @actual_day = @tweeet_day %>
+    </h3>
   <% end %>
-</div>
+  <%= render tweet %>
+  <% end %>
+  </div>
+</body>
 
-<%= link_to "New tweet", new_tweet_path %>
